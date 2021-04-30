@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&family=Roboto&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {    
+  font-family: 'Baloo Bhaina 2', cursive;    
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+main{
+  align-content: center;
+}
+
+.container{
+  width: 90%;
+  max-width: 10px;
+  margin: 10px;
+  overflow: hidden;
+  
+}
+
+h5{
+  text-align: center;
+  font-size: 1.3rem;
+  color: #f8d570 ;
+  font-family: 'Petit Formal Script', cursive;
+}
+
+
+.tablasFormato{
+  margin: 30px;
+  color: #fff;
+  tab-size: 10px;
+}
+
+main
+{
+  margin: 10px;
+}
+
+.titulo{
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  padding: 5px;
+  margin: 10px;
+  background: #000000;
+  letter-spacing:1px;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+th{
+  color: #ffffff;
+  width: 10px;
+  height: 10px;
+}
+
+/**--------------HEADER-----------**/
+.textos-header{
+  width: 100%;
+  height: 300px;
+  background: #104172;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #041a32, hsl(211, 77%, 18%));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #041a32, hsl(211, 77%, 18%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-size: 30px;
+  text-align: center;
+  color: #fff;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/** Organización columnas**/
+td 
+{
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  vertical-align: top;
+  padding: 0px 150px;
+}
+
+td.first {
+  border-right: 5px solid #ffffff;  
+  box-sizing: content-box;
+  width: 50%;
+
+}
+  
+td.second{
+  border-radius: 0.5rem;
+  width: 100%;
+
+}
+
+ /*--Datos de entrada--*/
+ .datos-entrada
+ {
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: .1em;
+  letter-spacing:1px;
+  text-align: justify;
+ }
+
+ .protocolo h3{
+  margin-top: 60px;
+  text-align: left;
+  font-size: 25px;
+  color:#fff;
+  text-transform: uppercase;
+ }
+
+.container p{
+  font-size: 20px;
+  color: #fff;
+}
+
+label{
+  font-size: 20px;
+  color: #fff;
+  
+}
+
+.labelAcor{  
+  font-size: 1.3rem;
+  color: #000000;
+}
+
+
+.labelAcor1{  
+  font-size: 1rem;
+  color: #000000;
+}
+
+.container input{
+  font-size: 15px;
+}
+
+.container .botonesFragmentar{
+  font-size: 20px;
+}
+
+#myform{
+  align-items: center;
+}
+
+h1{
+  padding-top: 25px;
+}
+
+tr
+{
+  font-size: 20px;
+  text-align: center;
+}
+
+.btnGenerar{
+  border-radius: 3px;
+  display: inline-block;
+  padding: 20px 50px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255,255,255,0,3);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.3);
+  color:black;
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+#ICPM
+{
+ color: brown;
+}
+
+/**
+CSS PARA EL ACORDEÓN
+**/
+
+.accordion
+{
+  align-content: center;
+  color: #000000;
+}
+
+.accordion p
+{
+  color: #000000;
+  font-size: 1rem;
+  padding: 10px;
+}
+
+
+

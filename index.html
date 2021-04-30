@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html >
+    <head>
+        <title>Construcción  y Fragmentación  de  datagramas IPv4</title>   
+        <link rel="stylesheet" href="css/style.css"> 
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> 
+        <link rel="icon" type="image/png" href="img/favicon.png" />       
+    </head>
+<body style = "background-image: url(img/26511.jpg)";> 
+    <header>     
+      <section class="textos-header">                      
+      <h5>Lina María Franco Olaya -
+        Stefanny Román Bohórquez -
+        Andrés Camilo Zuluaga Moreno     
+      </h5>  
+          <h1>Construcción y Fragmentación <br>De datagramas IPv4 </h1>            
+            <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="1 10 500 150" preserveAspectRatio="none" 
+                style="height: 100%; width: 100%;"><path d="M-4.23,22.20 C282.45,270.88 272.85,-87.35 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                  style="stroke: none; fill: #041a32;"></path></svg>
+            </div>  
+                     
+        </section>
+    </header>
+<main>          
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col">
+        <section class = "container datosEntrada">
+          <h2 class= "titulo"> Datos de entrada </h2>
+          <div class="container datos-entrada">
+            <label for="mtu">MTU: </label>
+            <input id = "inputMTU" type="text"  required><br>
+            <label for="longitud">Longitud:</label>
+            <input id ="textLongitud" type="text"  required><br>
+            <label for="id12">Identificación: </label>
+            <input id = "inputIdentificacion" type="text"  required><br>
+            <label for="ttl23">Tiempo de vida:</label>
+            <input id ="inputTTL" type="text"  required><br>
+        </div>  
+        </section>
+      <section class="container protc">      
+        <h2 class="titulo">Protocolo de nivel superior</h2>
+        <form id="myForm">
+          <input type="radio" name="miradio" id="ICMP" name="protocolo" value="ICMP">
+          <label for="ICMP">ICMP</label><br>
+          <input type="radio" name="miradio" id="TCP" name="protocolo" value="TCP">
+          <label for="TCP">TCP</label><br>
+          <input type="radio" name="miradio" id="UDP" name="protocolo" value="UDP">
+          <label for="UDP">UDP</label><br/>
+          </form>             
+      </section>  
+      </div>
+      <div class="col">
+        <section class = "container direcciones">
+          <h2 class="titulo">Direcciones IP</h2>
+          <div class="container direccionesIP">            
+          <label for="ipOrigen2">Dirección IP Origen: </label>
+          <input id = "InputipOrigen" type="text"  required><br>
+          <label for="ipDestino2">Dirección IP Destino:</label>
+          <input id ="InputipDestino" type="text"  required><br>
+          </div>            
+        </section>                                 
+          <section class="container fragmentar">
+            <div class = "container fragmentar">
+              <h2 class="titulo">¿Se puede fragmentar?</h2>            
+              <form id="myForm">             
+                <input type="radio" id="Si" name="miradio" value="Si" checked>
+                <label for="Si">Si</label><br>
+                <input type="radio" id="No" name="miradio" value="No">
+                <label for="TCP">No</label><br>
+              </form>   
+            </div>                          
+          </section>  
+        </div>        
+      </div>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col align-self-start">
+              <button onClick = "generarEjercicio()" class="btnGenerar">Generar Ejercicio</button>         
+            </div>
+            <div class="col align-self-center">
+              <button onClick = "funcionBoton()" class="btnGenerar">Calcular Datagrama</button>                               
+            </div>            
+          </div>
+        </div>                                   
+      </section>         
+  </main>
+  <section class = "tablasFormato">
+    <div class = "container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" >No.</th>
+          <th scope="col">Identificación</th>
+          <th scope="col">TTL</th>
+          <th scope="col">Ip Origen</th>
+          <th scope="col">Ip Destino</th>
+          <th scope="col">Protocolo</th>
+          <th scope="col">Longitud total</th>
+          <th scope="col">Desplazamiento</th>
+        </tr>
+      </thead>
+      <tbody id="Select_Table">
+        <thead>
+        <tr>     
+        </tr>      
+      </thead>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <div class="container accordion" id="accordionExample">      
+      <div class="accordion-item" id ="ItemGeneral">
+          <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="font-size: 1.3rem; background-color: #565D5D; color: black;">
+                  Internet Protocol Version 4, Src: <label class = "labelAcor"id="ipOrigenAcc"></label>, Dst: <label
+                  class = "labelAcor" id="ipDestino2"></label>
+              </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                  <p>
+                      0100 .... = Version: 4 <br />
+                      .... 0101 = Header Lenght: 20 bytes (5)
+                  </p>
+                  <div class="accordion accordion-flush" id="accordionFlushExample">
+                      <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingOne">
+                              <button class="accordion-button collapsed" type="button"
+                                  data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                  aria-expanded="false" aria-controls="flush-collapseOne" style="font-size: 1.3rem; background-color: #B6BEBE; color: black;">
+                                  Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+                              </button>
+                          </h2>
+                          <div id="flush-collapseOne" class="accordion-collapse collapse"
+                              aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                              <div class="accordion-body">
+                                  <p>
+                                      0000 00.. = Differentiated Services Codepoint: Default (0) <br />
+                                      .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <p>
+                      Total Length: <label  class = "labelAcor1" id="totalLength"></label> <br />
+                      Identification: 0x<label  class = "labelAcor1"id="numId"></label> <br />
+                  </p>
+                  <div class="accordion accordion-flush" id="accordionFlushExample">
+                      <div class="accordion-item">
+                          <h2 class="accordion-header" id="flush-headingOne">
+                              <button class="accordion-button collapsed" type="button"
+                                  data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                  aria-expanded="false" aria-controls="flush-collapseOne" style="font-size: 1.3rem ; background-color: #B6BEBE; color: black;">
+                                  Flags:
+                              </button>
+                          </h2>
+                          <div id="flush-collapseOne" class="accordion-collapse collapse"
+                              aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                              <div class="accordion-body">
+                                  <p>
+                                      0... .... .... .... = Reserved bit: Not set <br />
+                                      .<label  class = "labelAcor1" id="binDF"></label>.. .... .... .... = Don't fragment: <label class = "labelAcor1" id="DF"></label> <br />
+                                      ..<label  class = "labelAcor1" id="binMF"></label>. .... .... .... = More fragments: <label class = "labelAcor1" id="MF"></label> <br />
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <p>
+                      Fragment Offset: <label  class = "labelAcor1" id="desplazamiento"></label> <br />
+                      Time to Live: <label  class = "labelAcor1" id="ttl"></label> <br />
+                      Protocolo: <label  class = "labelAcor1" id="protocolo"></label> <br />
+                      Header Checksum: 0x<label  class = "labelAcor1" id="checksum"></label> [validation disabled] </br>
+                      [Header checksum status: Unverified] </br>
+                      Source: <label  class = "labelAcor1" id="ipOrigen"></label> </br>
+                      Destination: <label  class = "labelAcor1" id="ipDestino"></label>
+                  </p>
+              </div>
+          </div>
+      </div>
+      </div>
+  </div>
+  </section>  
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col">
+        <table class="table table-hover">      
+          <thead >
+            <tr>
+              <th id ="tituloHexa" scope="col" colspan = "5" style="text-align: center;">Fragmento Hexadecimal</th>
+            </tr>
+          </thead>
+            <tbody id="Tabla_Hexa">
+              <tr>
+              </tr>      
+            </tbody>
+        </table>
+      </div>
+      <div class="col">
+        <table class="table table-hover">      
+          <thead>
+            <tr>
+              <th id ="tituloBin" scope="col" colspan = "5" style="text-align: center;">Fragmento Binario</th>
+            </tr>
+          </thead>
+            <tbody id="TablaBin">
+              <tr>
+              </tr>      
+            </tbody>
+        </table>
+      </div>      
+    </div>
+  </div>
+</body>
+  
+<script src="js/Datagrama.js"></script>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</html>
